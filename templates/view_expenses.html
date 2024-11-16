@@ -1,0 +1,82 @@
+{% extends "base.html" %}
+
+{% block title %}View Expenses{% endblock %}
+
+{% block content %}
+<style>
+/* Functional App Container */
+.functional-app-container {
+    max-width: 800px; /* Limit the width of the container */
+    margin: 20px auto; /* Center the container */
+    padding: 20px; /* Add padding */
+    background-color: #202221; /* Background color for the container */
+    border-radius: 8px; /* Rounded corners */
+    color: #fff; /* White text */
+}
+
+/* Table Styles */
+.expenses-table {
+    width: 100%; /* Full width */
+    border-collapse: collapse; /* Remove space between borders */
+    margin-top: 20px; /* Space above the table */
+}
+
+.expenses-table th, .expenses-table td {
+    padding: 12px; /* Padding for table cells */
+    text-align: left; /* Align text to the left */
+    border-bottom: 1px solid #444; /* Bottom border for rows */
+}
+
+.expenses-table th {
+    background-color: #333; /* Dark background for header */
+    color: gold; /* Gold text for header */
+}
+
+.expenses-table tr:hover {
+    background-color: #2c2f33; /* Highlight row on hover */
+}
+
+/* Button Styles */
+.btn {
+    display: inline-block; /* Inline block for button */
+    padding: 10px 20px; /* Padding for button */
+    background-color: gold; /* Gold background */
+    color: #101211; /* Dark text */
+    border: none; /* No border */
+    border-radius: 5px; /* Rounded corners */
+    text-decoration: none; /* No underline */
+    margin-top: 20px; /* Space above the button */
+    transition: background-color 0.3s ease; /* Smooth transition */
+}
+
+.btn:hover {
+    background-color: darkgoldenrod; /* Darker shade on hover */
+}
+</style>
+<div class="functional-app-container">
+    <h1>Your Expenses</h1>
+    {% if expenses %}
+        <table class="expenses-table">
+            <thead>
+                <tr>
+                    <th>Category</th>
+                    <th>Amount</th>
+                    <th>Date</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for expense in expenses %}
+                    <tr>
+                        <td>{{ expense.category.name }}</td>
+                        <td>{{ user.currency }} {{ "%.2f"|format(expense.amount) }}</td>
+                        <td>{{ expense.date.strftime('%Y-%m-%d') }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p>No expenses recorded.</p>
+    {% endif %}
+    <a href="{{ url_for('functional_app') }}" class="btn">Back to Functional App</a>
+</div>
+{% endblock %}

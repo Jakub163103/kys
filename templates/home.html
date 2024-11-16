@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="hero-section">
+    <div class="hero-text">
+        {% if user %}
+            <h1>Welcome, {{ user.email }}!</h1>
+            <p>Powerful data insights for everyone.</p>
+            <a href="{{ url_for('logout') }}" class="btn logout-btn">Logout</a>
+        {% else %}
+            <h1>Powerful data insights for everyone</h1>
+            <p>Know Your Savings helps you track, compare, and optimize your finances effortlessly by showing you how much you can save on bills, subscriptions, insurance, and more.</p>
+            <div class="hero-buttons">
+                <a href="{{ url_for('signup') }}" class="btn get-started-btn">Get started</a>
+                <a href="{{ url_for('features') }}" class="btn learn-more-btn">Learn more</a>
+            </div>
+        {% endif %}
+    </div>
+    <div class="hero-image">
+        <img src="{{ url_for('static', filename='images/chart.png') }}" alt="Data Insights">
+        <div class="overlay"></div>
+    </div>
+</div>
+<div class="cta-section">
+    <h2>Ready to get started?</h2>
+    <p>Take the first step to growing your business</p>
+    <a href="{{ url_for('signup') }}" class="cta-btn">Get Started</a>
+</div>
+{% endblock %}

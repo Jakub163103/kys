@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block title %}Features{% endblock %}
+
+{% block content %}
+<div class="features-section">
+    <h2>Our Features</h2>
+    <p>Explore the amazing features our app offers.</p>
+    
+    <!-- Link Button to Functional App -->
+    <a href="{{ url_for('functional_app') }}" class="btn app-btn">Go to Functional App</a>
+</div>
+{% endblock %}

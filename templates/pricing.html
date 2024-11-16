@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+
+{% block title %}Pricing{% endblock %}
+
+{% block content %}
+<div class="pricing-section">
+    <h2>Simple and flexible pricing</h2>
+    <div class="pricing-cards">
+        <div class="pricing-card">
+            <h3>Starter</h3>
+            <p class="price">Free</p>
+            <ul>
+                <li>✔ Real-time data dashboards</li>
+                <li>✔ Basic reports</li>
+                <li>✔ Single-user access</li>
+                <li>✔ Basic email support</li>
+            </ul>
+            <a href="#" class="cta-btn">Choose Starter</a>
+        </div>
+        <div class="pricing-card">
+            <h3>Advanced</h3>
+            <p class="price">$10 per month</p>
+            <ul>
+                <li>✔ All Basic plan features plus:</li>
+                <li>✔ Advanced analytics tools</li>
+                <li>✔ Personalised reports</li>
+                <li>✔ Multi-user access</li>
+                <li>✔ Priority email support</li>
+            </ul>
+            <a href="#" class="cta-btn">Choose Advanced</a>
+        </div>
+        <div class="pricing-card">
+            <h3>Enterprise</h3>
+            <p class="price">Contact us</p>
+            <ul>
+                <li>✔ All Advanced plan features plus:</li>
+                <li>✔ Unlimited user accounts</li>
+                <li>✔ Dedicated account manager</li>
+                <li>✔ Custom data solutions</li>
+                <li>✔ Advanced security features</li>
+                <li>✔ API access</li>
+            </ul>
+            <a href="#" class="cta-btn">Contact sales team</a>
+        </div>
+    </div>
+    <div class="cta-section">
+        <h2>Ready to get started?</h2>
+        <p>Take the first step to growing your business</p>
+        <a href="{{ url_for('signup') }}" class="cta-btn">Get Started</a>
+    </div>
+</div>
+
+{% endblock %}

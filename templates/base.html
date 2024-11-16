@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}My Flask App{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="{{ url_for('static', filename='js/scripts.js') }}"></script>
+</head>
+<body class="{% if request.endpoint in ['login', 'signup'] %}hide-header-footer{% endif %}">
+    <header class="main-header">
+        <div class="logo-container">
+            <a href="{{ url_for('home') }}">
+                <img src="{{ url_for('static', filename='images/usdt.png') }}" alt="Logo" class="logo">
+            </a>
+            <span class="site-title">Know Your $avings</span>
+        </div>
+        <nav class="navbar">
+            <ul>
+                <li><a href="{{ url_for('features') }}">Features</a></li>
+                <li><a href="{{ url_for('pricing') }}">Pricing</a></li>
+                <li><a href="{{ url_for('about') }}">About</a></li>
+                <li><a href="{{ url_for('contact') }}">Contact</a></li>
+                <li><a href="{{ url_for('view_expenses') }}">Logs</a></li>
+            </ul>
+        </nav>
+        <div class="auth-buttons">
+            {% if session.get('user_id') %}
+                <a href="{{ url_for('logout') }}" class="btn logout-btn">Logout</a>
+            {% else %}
+                <a href="{{ url_for('login') }}" class="btn login-btn">Login</a>
+                <a href="{{ url_for('signup') }}" class="btn signup-btn">Sign Up</a>
+            {% endif %}
+        </div>
+    </header>
+
+    <!-- Flash Messages -->
+    <div class="flash-container">
+        {% for category, message in get_flashed_messages(with_categories=true) %}
+        <div class="flash {{ category }}">
+            <span class="close-btn">&times;</span>
+            {{ message }}
+        </div>
+        {% endfor %}
+    </div>
+
+    <main>
+        {% block content %}
+        <!-- Page-specific content will go here -->
+        {% endblock %}
+    </main>
+
+    <footer>
+        <div>
+            <h4>Product</h4>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Features</a></li>
+                <li><a href="#">Pricing</a></li>
+                <li><a href="#">Sign in</a></li>
+            </ul>
+        </div>
+        <div>
+            <h4>Company</h4>
+            <ul>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </div>
+        <div>
+            <h4>Social</h4>
+            <ul>
+                <li><a href="#">LinkedIn</a></li>
+            </ul>
+        </div>
+        <div>
+            <h4>Admin</h4>
+            <ul>
+                <li><a href="#">Style guide</a></li>
+                <li><a href="#">Licenses</a></li>
+                <li><a href="#">Password</a></li>
+                <li><a href="#">404</a></li>
+            </ul>
+        </div>
+        <div>
+            <h4>Important</h4>
+        </div>
+        <div class="copyright">
+            &copy; KYS2024
+        </div>
+    </footer>
+</body>
+</html> 
