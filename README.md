@@ -25,7 +25,7 @@ Know Your $avings is a web application designed to help users track, compare, an
 1. Clone the repository:
    ```bash
    git clone https://github.com/Jakub163103/kys.git
-   cd Know-Your-Savings
+   cd kys
    ```
 
 2. Create a virtual environment:
