@@ -24,7 +24,7 @@ Know Your $avings is a web application designed to help users track, compare, an
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/yourusername/Know-Your-Savings.git
+   git clone https://github.com/Jakub163103/kys.git
    cd Know-Your-Savings
    ```
 
@@ -72,7 +72,3 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 
 - Thanks to the Flask community for their support and resources.
 - Special thanks to the developers of Chart.js for their excellent charting library.
-
-## Contact
-
-For any inquiries, please reach out to [your-email@example.com](mailto:your-email@example.com).
